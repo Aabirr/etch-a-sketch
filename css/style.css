@@ -5,3 +5,15 @@ body {
 h1 {
   font-size: 2em;
 }
+
+.container > div {
+  background-color: red;
+  width: 16px;
+  height: 16px;
+  border-color: black;
+  margin: 5px;
+}
+
+.container > div:hover {
+  background-color: aqua;
+}
