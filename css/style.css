@@ -6,14 +6,26 @@ h1 {
   font-size: 2em;
 }
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
 .container > div {
-  background-color: red;
+  background-color: rgb(0, 0, 0);
   width: 16px;
   height: 16px;
-  border-color: black;
-  margin: 5px;
 }
 
 .container > div:hover {
-  background-color: aqua;
+  background-color: red;
+  
+}
+
+
+.container>div:nth-child(16n + 1) {
+  width: 100%;
+  border: 0;
+  height: 0;
 }
