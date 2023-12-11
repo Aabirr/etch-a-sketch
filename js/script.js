@@ -12,9 +12,14 @@ function grids () {
     for(let i = 1; i <= number; i++) {
         const childDivs = document.createElement("div");
 
-        childDivs.addEventListener('mouseover', () => {
-            childDivs.style.backgroundColor = "red";
-        });
+        childDivs.addEventListener('mousedown', () => {
+          //childDivs.style.backgroundColor = "red";
+
+            childDivs.addEventListener('mousemove', () => {
+            childDivs.style.backgroundColor = "red"; 
+
+      })        
+    });
         grid.appendChild(childDivs);
     }
 
@@ -25,13 +30,23 @@ function grids () {
 grids();
 
 //game reset button
+
 const buttons = document.createElement("button");
-buttons.textContent = "Reset Game";
-const gDivs = document.querySelector(".container > div");
+buttons.textContent = "Clear Board";
 
-buttons.addEventListener('click', (button) => {
-
-    
-    location.reload();
+// /Board reset button
+buttons.addEventListener('click', () => {
+  clearBoard();
 })
+//Board cleaner
+function clearBoard () {
+  const gDivs = document.querySelectorAll(".container > div");
+  gDivs.forEach((grids) => {
+    grids.style.backgroundColor = "black";
+});
+
+}
+
+
+
 grid.appendChild(buttons);
