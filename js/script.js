@@ -5,20 +5,22 @@ console.log("Hello");
 const grid = document.querySelector(".container");
 
 //16x16 grid
-function grids () {
-    let number = 16;
-    number *= 16;
+function grids (size) {
 
-    for(let i = 1; i <= number; i++) {
+  
+
+    for(let i = 1; i <= size*size; i++) {
         const childDivs = document.createElement("div");
+        childDivs.style.backgroundColor = "black";
+        //childDivs.style.width = size;
+        //childDivs.style.height = size;
+        grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+        grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
+        
 
-        childDivs.addEventListener('mousedown', () => {
-          //childDivs.style.backgroundColor = "red";
-
-            childDivs.addEventListener('mousemove', () => {
-            childDivs.style.backgroundColor = "red"; 
-
-      })        
+        childDivs.addEventListener('mouseover', () => {
+          childDivs.style.backgroundColor = "red";
+        
     });
         grid.appendChild(childDivs);
     }
@@ -27,12 +29,11 @@ function grids () {
 
    
 }
-grids();
+grids(64);
 
 //game reset button
 
-const buttons = document.createElement("button");
-buttons.textContent = "Clear Board";
+const buttons = document.querySelector("#clear");
 
 // /Board reset button
 buttons.addEventListener('click', () => {
@@ -47,6 +48,3 @@ function clearBoard () {
 
 }
 
-
-
-grid.appendChild(buttons);
