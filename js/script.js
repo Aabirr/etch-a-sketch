@@ -1,9 +1,28 @@
 console.log("Hello");
 
 // grids
-
+let defaultSize = 16;
 const grid = document.querySelector(".container");
 
+
+
+//grid size picker
+
+const gridValue = document.querySelector("#grid-size");
+const gridSize = document.querySelector(".grid-size > label");
+gridSize.textContent = `${gridValue.value} x ${gridValue.value}`;
+
+const gridResizer = function () {
+  
+  
+  gridValue.addEventListener('input', () =>{
+    gridSize.textContent = `${gridValue.value} x ${gridValue.value}`;
+    let newSize = gridValue.value;
+    newSize =defaultSize;
+  });
+
+}
+gridResizer();
 //16x16 grid
 function grids (size) {
 
@@ -29,7 +48,9 @@ function grids (size) {
 
    
 }
-grids(64);
+grids(defaultSize);
+
+
 
 //game reset button
 
