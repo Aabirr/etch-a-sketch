@@ -11,25 +11,7 @@ h1 {
   /* flex-wrap: wrap; */
   width: 500px;
   height: 500px;
-  border: 1px solid black;
+  border: 1px solid rgb(4, 144, 179);
   
   
 }
-
-.container > div {
-  /* background-color: rgb(167 61 61); */
-  
-  
-}
-
-.container > div:hover {
-  background-color: red;
-  
-}
-
-
-/* .container>div:nth-child(16n + 1) {
-  width: 100%;
-  border: 0;
-  height: 0;
-} */
