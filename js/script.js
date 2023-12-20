@@ -18,6 +18,7 @@ slider.addEventListener('input', () => {
   
 })
 
+
 //16x16 grid
 function grids (size) {
 
@@ -28,15 +29,30 @@ function grids (size) {
         grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
         grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
         
-
-        childDivs.addEventListener('mouseover', () => {
-          childDivs.style.backgroundColor = "red";
-        
-    });
-
         grid.appendChild(childDivs);
     }
-   
+
+    // only draw when mouse key is held.
+        let isMouseDown = false;
+        grid.addEventListener('mousedown', function(e) {
+          isMouseDown = true;
+          e.target.style.backgroundColor = "red";
+
+        });
+
+        grid.addEventListener('mouseup', function(e) {
+          isMouseDown = false;
+
+        });
+
+        grid.addEventListener('mouseover', function(e) {
+          
+          if (isMouseDown) {
+            e.target.style.backgroundColor = "red";
+          }
+
+        });
+  
 }
 grids(defaultSize);
 
