@@ -18,14 +18,25 @@ slider.addEventListener('input', () => {
   
 })
 
+//Color picker
+
+const bgColor = document.querySelector("#bg-color");
+const penColor = document.querySelector("#pen-color");
+
 
 //16x16 grid
 function grids (size) {
 
-
     for(let i = 1; i <= size*size; i++) {
         const childDivs = document.createElement("div");
         childDivs.style.backgroundColor = "black";
+       
+        //background color picker
+        bgColor.addEventListener('input', () => {
+          childDivs.style.backgroundColor = bgColor.value;
+        })
+        
+
         grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
         grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
         
@@ -36,7 +47,7 @@ function grids (size) {
         let isMouseDown = false;
         grid.addEventListener('mousedown', function(e) {
           isMouseDown = true;
-          e.target.style.backgroundColor = "red";
+          e.target.style.backgroundColor = penColor.value;
 
         });
 
@@ -48,13 +59,14 @@ function grids (size) {
         grid.addEventListener('mouseover', function(e) {
           
           if (isMouseDown) {
-            e.target.style.backgroundColor = "red";
+            e.target.style.backgroundColor = penColor.value;
           }
 
         });
   
 }
 grids(defaultSize);
+
 
 //game reset button
 
@@ -69,6 +81,8 @@ buttons.addEventListener('click', () => {
 function clearBoard () {
   const gDivs = document.querySelectorAll(".container > div");
   gDivs.forEach((grids) => {
-    grids.style.backgroundColor = "black";
-});
+    grids.style.backgroundColor = bgColor.value;
+    
+})
+
 }
