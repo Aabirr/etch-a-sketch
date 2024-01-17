@@ -2,22 +2,6 @@
 let defaultSize = 16;
 const grid = document.querySelector(".container");
 
-//grid size picker
-
-const slider = document.querySelector("#slider");
-const sliderValue = document.querySelector(".slider > label");
-sliderValue.textContent = `${slider.value} x ${slider.value}`;
-
-slider.oninput = function (){
-  sliderValue.textContent = `${slider.value} x ${slider.value}`;
-  let newSize = slider.value;
-  defaultSize = newSize;
-  clearBoard();
-  grids(newSize);
-
-  
-}
-
 //Color picker
 
 const bgColor = document.querySelector("#bg-color");
@@ -28,6 +12,10 @@ const penColor = document.querySelector("#pen-color");
 function grids (size) {
 
     for(let i = 1; i <= size*size; i++) {
+
+      grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+      grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
         const childDivs = document.createElement("div");
         childDivs.style.backgroundColor = "black";
         
@@ -40,8 +28,7 @@ function grids (size) {
         })
         
 
-        grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-        grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
+        
 
         grid.setAttribute('draggable', false);
         
@@ -76,6 +63,19 @@ function grids (size) {
 grids(defaultSize);
 
 
+//grid size picker
+
+const slider = document.querySelector("#slider");
+const sliderValue = document.querySelector(".slider > label");
+sliderValue.textContent = `${slider.value} x ${slider.value}`;
+
+slider.oninput = function (){
+  sliderValue.textContent = `${slider.value} x ${slider.value}`;
+  let newSize = slider.value;
+  clearBoard();
+  grids(newSize);
+
+}
 
 //color changer
 
