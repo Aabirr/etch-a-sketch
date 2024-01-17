@@ -8,7 +8,7 @@ const slider = document.querySelector("#slider");
 const sliderValue = document.querySelector(".slider > label");
 sliderValue.textContent = `${slider.value} x ${slider.value}`;
 
-slider.addEventListener('input', () => {
+slider.oninput = function (){
   sliderValue.textContent = `${slider.value} x ${slider.value}`;
   let newSize = slider.value;
   defaultSize = newSize;
@@ -16,7 +16,7 @@ slider.addEventListener('input', () => {
   grids(newSize);
 
   
-})
+}
 
 //Color picker
 
@@ -30,6 +30,9 @@ function grids (size) {
     for(let i = 1; i <= size*size; i++) {
         const childDivs = document.createElement("div");
         childDivs.style.backgroundColor = "black";
+        
+
+        //childDivs.addEventListener('mousemove', chColor);
        
         //background color picker
         bgColor.addEventListener('input', () => {
@@ -39,6 +42,8 @@ function grids (size) {
 
         grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
         grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
+
+        grid.setAttribute('draggable', false);
         
         grid.appendChild(childDivs);
     }
@@ -47,7 +52,8 @@ function grids (size) {
         let isMouseDown = false;
         grid.addEventListener('mousedown', function(e) {
           isMouseDown = true;
-          e.target.style.backgroundColor = penColor.value;
+          //e.target.style.backgroundColor = "red";
+          chColor(e);
 
         });
 
@@ -59,14 +65,23 @@ function grids (size) {
         grid.addEventListener('mouseover', function(e) {
           
           if (isMouseDown) {
-            e.target.style.backgroundColor = penColor.value;
+            //e.target.style.backgroundColor = "red";
+            chColor(e);
           }
 
         });
   
 }
+
 grids(defaultSize);
 
+
+
+//color changer
+
+function chColor (e) {
+  e.target.style.backgroundColor = penColor.value;
+}
 
 //game reset button
 
