@@ -1,1 +1,1 @@
-Etch-a-Sketch game for Odin project.
+Etch-a-Sketch app for Odin project.
