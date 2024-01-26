@@ -6,6 +6,7 @@ const grid = document.querySelector(".container");
 
 const bgColor = document.querySelector("#bg-color");
 const penColor = document.querySelector("#pen-color");
+const multiColor = document.querySelector("#rainbow");
 
 
 //16x16 grid
@@ -16,15 +17,15 @@ function grids (size) {
       grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
       grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
-        const childDivs = document.createElement("div");
-        childDivs.style.backgroundColor = "black";
+        const square = document.createElement("div");
+       square.style.backgroundColor = "black";
         
 
-        //childDivs.addEventListener('mousemove', chColor);
+        //square.addEventListener('mousemove', chColor);
        
         //background color picker
         bgColor.addEventListener('input', () => {
-          childDivs.style.backgroundColor = bgColor.value;
+         square.style.backgroundColor = bgColor.value;
         })
         
 
@@ -32,7 +33,7 @@ function grids (size) {
 
         grid.setAttribute('draggable', false);
         
-        grid.appendChild(childDivs);
+        grid.appendChild (square);
     }
 
     // only draw when mouse key is held.
@@ -53,7 +54,7 @@ function grids (size) {
           
           if (isMouseDown) {
             //e.target.style.backgroundColor = "red";
-            chColor(e);
+           chColor(e);
           }
 
         });
@@ -77,10 +78,29 @@ slider.oninput = function (){
 
 }
 
-//color changer
+//Rainbow color
+function random(number) {
+  return Math.floor(Math.random() * number);
+}
 
+function rainbowColor (e) {
+    const r = random(255);
+    const g = random(255);
+    const b = random(255);
+
+    let rndClr = `rgb(${r}, ${g}, ${b})`;
+    e.target.style.backgroundColor = rndClr;
+}
+
+//color changer
 function chColor (e) {
-  e.target.style.backgroundColor = penColor.value;
+
+  if (multiColor.checked == true){
+    e.target.style.backgroundColor = rainbowColor(e);
+  } else {
+    e.target.style.backgroundColor = penColor.value;
+  }
+  
 }
 
 //game reset button
@@ -99,5 +119,4 @@ function clearBoard () {
     grids.style.backgroundColor = bgColor.value;
     
 })
-
 }
