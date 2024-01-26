@@ -8,43 +8,52 @@
 </head>
 <body>
   <h1>Etch-a-Sketch</h1>
+<div class="main">
 
+  <!--Tools bar-->
+  <div class="sidebar">
+    
+    <div class="color">
+      <div class="bg-color">
+        <label for="bg-color">Background Color</label><br>
+        <input type="color" id="bg-color" value="#000000">
+      </div>
+  
+      <!-- Pen color picker -->
+  
+      <div class="pen-color">
+        <label for="pen-color">Pen Color</label><br>
+        <input type="color" id="pen-color" value="#ff0000">
+      </div>
+  
+      <div class="rainbow">
+        <div class="rainbow">Rainbow Color</div><br>
+        <label class="rainbowSwitch">
+          <input type="checkbox" id="rainbow">
+          <div class="toggle"></div>
+        </label>
+      </div>
 
+      <div class="slider">
+        <label for="slider"></label><br>
+        <input type="range" min="1" max="44" value="64" id="slider">
+      </div>
+    </div>
+  
+    <div class="clear">
+      <button id="clear">Clear Board</button>
+    </div>
+  </div>
+
+  <!--Sketch board-->
   <div class="container">
 
   </div>
+</div>
 
-  <div class="slider">
-    <label for="slider"></label><br>
-    <input type="range" min="1" max="64" value="16" id="slider">
-  </div>
+<!--Footer-->
+<div class="footer">Copyright@Aabir. 2023
 
-  <div class="color">
-    <div class="bg-color">
-      <label for="bg-color">Background Color</label><br>
-      <input type="color" id="bg-color" value="#000000">
-    </div>
-
-    <!-- Pen color picker -->
-
-    <div class="pen-color">
-      <label for="pen-color">Pen Color</label><br>
-      <input type="color" id="pen-color" value="#ff0000">
-    </div>
-
-    <div class="rainbow">
-      <div class="rainbow">Rainbow Color</div><br>
-      <label class="rainbowSwitch">
-        <input type="checkbox" id="rainbow">
-        <div class="toggle"></div>
-      </label>
-    </div>
-  </div>
-
-  <div class="clear">
-    <button id="clear">Clear Board</button>
-  </div>
-
- 
+</div>
 </body>
 </html>

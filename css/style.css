@@ -1,31 +1,75 @@
 body {
  font-family: sans-serif;
- 
+ background-color: rgb(236, 241, 224);
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 5em;
+  font-family: fantasy;
+  text-align: center;
+  padding: 50px;
 }
 
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 960px;
+  
+  left: 0;
+  margin: 0 auto;
+  justify-content: space-around;
+}
 
+.sidebar{
+  background-color: rgb(236, 241, 224);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0px 50px 50px 50px;
+  
+  
+}
 
 .container {
   display: grid;
   /* flex-wrap: wrap; */
+  box-shadow: 0px 0px 2px 2px #acacac ;
   width: 500px;
   height: 500px;
   
 }
 
 .color {
-  margin-top: 25px;
-  display: flex; 
   font-weight: bold;
-  text-align: center;
+  font-size: 20px;
 }
 
-.color > div {
-  margin-right: 20px;
+.color > div{
+  margin-bottom: 15px;
+}
+
+.clear > button{
+  background-color: #000000;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 10px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+}
+
+.clear > button:hover{
+  background-color: red;
+  cursor: pointer;
+}
+
+.clear > button:active {
+  background-color: #910404;
+  box-shadow: 0 5px #3f3f3f;
+  transform: translateY(4px);
 }
 
 #bg-color {
@@ -35,6 +79,7 @@ h1 {
   width: 100px;
   height: 100px;
   border: none;
+  margin-top: 10px;
 }
 
 #bg-color[type = "color"]::-moz-color-swatch{
@@ -50,6 +95,7 @@ h1 {
   -webkit-appearance: none;
   -moz-appearance: none;
   background-color: transparent;
+  margin-top: 10px;
   width: 100px;
   height: 100px;
   border: none;
@@ -118,4 +164,49 @@ h1 {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+
+#slider{
+  margin-top: 10px;
+  -webkit-appearance: none;
+  height: 25px;
+  width: 200px;
+  background-color: rgb(39, 39, 39);
+  border-radius: 20px;
+  -webkit-transition: .3s;
+  transition: opacity .2s;
+}
+
+#slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #00ff22;
+  cursor: pointer;
+}
+#slider::-webkit-slider-thumb::before {
+  -webkit-appearance: none;
+  appearance: none;
+  color: red;
+}
+
+#slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #ffe600;
+  cursor: pointer;
+}
+
+.footer{
+  font-weight: bold;
+  font-size: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 20px;
+  padding: 20px;
+
 }
